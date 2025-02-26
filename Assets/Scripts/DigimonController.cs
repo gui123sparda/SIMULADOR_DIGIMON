@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.VisualScripting;
@@ -18,6 +19,8 @@ public class DigimonController : MonoBehaviour
     public TextMeshProUGUI felicidadeTextMesh;
     public TextMeshProUGUI fomeTextMesh;
 
+    public List<DigimonNode> linhaEvolucao;
+
     void Awake(){
         digimonName = evolutionTree.rootNode.digimonName;
         digimonImage = evolutionTree.rootNode.digimonSprite;
@@ -26,6 +29,7 @@ public class DigimonController : MonoBehaviour
     void Start()
     {
         digimonName = evolutionTree.rootNode.digimonName;
+        linhaEvolucao.Add(evolutionTree.currentNode);
         UpdateUI();
     }
 
@@ -55,7 +59,7 @@ public class DigimonController : MonoBehaviour
         treinoTextMesh.text = treino.ToString();
         felicidadeTextMesh.text = felicidade.ToString();
         fomeTextMesh.text = fome.ToString();
-        
+
         if(Input.GetKeyDown(KeyCode.Z)){
             Train();
         }
@@ -75,6 +79,7 @@ public class DigimonController : MonoBehaviour
         if (newDigimon != evolutionTree.currentNode)
         {
             evolutionTree.currentNode = newDigimon;
+            linhaEvolucao.Add(newDigimon);
             UpdateUI();
         }
     }
