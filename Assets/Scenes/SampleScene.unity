@@ -2490,9 +2490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvolution: {fileID: 2079554688}
-  minTreino: 50
-  minFelicidade: 50
-  maxFome: 100
+  minTreino: 40
+  minFelicidade: 40
+  maxFome: 90
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
